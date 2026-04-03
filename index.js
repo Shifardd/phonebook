@@ -86,20 +86,28 @@ app.post('/api/persons', (req, res) => {
       error: 'name or number is missing'
     })
   }
-  let allNames = data.map(person => person.name)
-  if(allNames.includes(body.name)) {
-    return res.status(400).json({
-      error: 'name must be unique'
-    })
-  }
+  // let allNames = data.map(person => person.name)
+  // if(allNames.includes(body.name)) {
+  //   return res.status(400).json({
+  //     error: 'name must be unique'
+  //   })
+  // }
 
-  const newPerson = {
+  // const newPerson = {
+  //   name: body.name,
+  //   number: body.number,
+  //   id: generateId()
+  // }
+
+  const newPerson = new Person({
     name: body.name,
     number: body.number,
-    id: generateId()
-  }
-  data = data.concat(newPerson)
-  res.json(newPerson)
+  })
+  newPerson.save().then(person => {
+    res.json(person)
+  })
+  // data = data.concat(newPerson)
+  // res.json(newPerson)
 })
 
 const unknownEndpoint = (req, res) => {
