@@ -76,7 +76,7 @@ app.get('/api/persons/:id', (req, res, next) => {
     .catch(error => next(error))
 })
 
-app.delete('/api/persons/:id', (req, res) => {
+app.delete('/api/persons/:id', (req, res, next) => {
   // const id = req.params.id
   // data = data.filter(p => p.id !== id)
   // res.status(204).end()
@@ -84,6 +84,7 @@ app.delete('/api/persons/:id', (req, res) => {
     .then(result => {
       res.status(204).end()
     })
+    .catch(error => next(error))
 })
 
 // const generateId = () => {
