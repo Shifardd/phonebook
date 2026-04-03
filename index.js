@@ -73,10 +73,10 @@ app.delete('/api/persons/:id', (req, res) => {
   res.status(204).end()
 })
 
-const generateId = () => {
-  const randomId = Math.floor(Math.random() * 10000) + 1
-  return String(randomId)
-}
+// const generateId = () => {
+//   const randomId = Math.floor(Math.random() * 10000) + 1
+//   return String(randomId)
+// }
 
 app.post('/api/persons', (req, res) => {
   const body = req.body
