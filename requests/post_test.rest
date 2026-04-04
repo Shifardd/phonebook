@@ -30,3 +30,12 @@ Content-Type: application/json
   "name": "Ada Lovelace",
   "number": "6969696969"
 }
+
+###
+POST http://localhost:3001/api/persons/
+Content-Type: application/json
+
+{
+  "name": "Mi",
+  "number": "0101023232"
+}
